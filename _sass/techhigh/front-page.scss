@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&display=swap');
 
 html, body {
-  margin: 0;
-  padding: 0;
-  background: darkblue;
-  overflow-x: hidden;
   font-family: "Fira Sans", sans-serif;
   scroll-behavior: smooth;
 }
 
+:root{
+  --wths-home-background: url("https://lpaa.com/wp-content/uploads/2006/10/Worcester-Tech.jpg");
+}
+
 .front-page {
+  margin: 0;
+  padding: 0;
+  background: darkblue;
+  overflow-x: hidden;
+
     #down_prompt {
       position: absolute;
       bottom: 2.5vh;
@@ -23,7 +28,27 @@ html, body {
       animation-iteration-count: infinite;
     }
 
-    #down_prompt a {
+    #up_prompt {
+      position: fixed;
+      bottom: 1rem;
+      left: 2rem;
+      transform: translateX(-50%);
+      font-size: 3vh;
+      z-index: 1000;
+      border-radius: 0.5rem;
+      background-color: #ffffff99;
+      width: 2.5rem;
+      height: 2.5rem;
+
+      i {
+        position: absolute;
+        top: 1.25rem;
+        left: 1.25rem;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    #down_prompt a, #up_prompt a {
       color: white;
     }
 
@@ -49,7 +74,6 @@ html, body {
 
       color: white;
       font-weight: 800;
-      text-transform: uppercase;
       min-height: calc(100vh - 20px);
     }
 
@@ -61,6 +85,12 @@ html, body {
     h1 {
       font-size: 3.5rem;
       font-weight: 700;
+      line-height: 3.75rem;
+      text-transform: uppercase;
+    }
+
+    .container:not(.fixed) ul {
+        display: none;
     }
 
     ul {
@@ -85,10 +115,6 @@ html, body {
 
     li:hover {
       color: #aaa;
-    }
-
-    :root{
-    --wths-home-background: url("https://lpaa.com/wp-content/uploads/2006/10/Worcester-Tech.jpg");
     }
 
     &:before {
@@ -146,9 +172,7 @@ html, body {
 
     @media only screen and (max-width: 700px) {
       .fixed {
-        width: 100vw;
-        max-width: unset;
-        position: relative !important;
+        display: none;
       }
       .container:not(.fixed) {
         width: unset;

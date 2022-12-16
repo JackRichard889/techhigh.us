@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
 {%- include head.html -%}
 
@@ -7,73 +7,54 @@
 
 <main class="page-content site-main front-page" aria-label="Content">
   <div id="down_prompt">
-    <a href="#content"><i class="fa-solid fa-arrow-down"></i></a>
+    <a aria-label="Skip to next section" href="#{{ site.sections[0].slug }}"><i class="fa-solid fa-arrow-down"></i></a>
   </div>
 
-  <div class="container" data-index="0">
-    <!-- Placeholder for main background and content -->
+  <div id="up_prompt">
+    <a aria-label="Go to page top" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
-  <div class="container fixed" data-index="0">
+
+  <div class="container" data-index="0" id="top">
+    <h1>Worcester<br>Technical<br>High School</h1>
+
+    <ul>
+      {% for section in site.sections %}
+      <li>
+        <a href="#{{ section.slug }}" aria-current="page">{{ section.title | escape}} <i class="fa-solid fa-angle-right"></i></a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="container fixed" data-image="https://lpaa.com/wp-content/uploads/2006/10/Worcester-Tech.jpg">
     <h1 id="panel_heading">Worcester<br>Technical<br>High School</h1>
 
     <ul id="panel_ul">
-      <li id="about">About Our School <i class="fa-solid fa-angle-right"></i></li>
-      <li id="technical">Technical Areas <i class="fa-solid fa-angle-right"></i></li>
-      <div data-for="technical" class="submenu">
-        <ul>
-          <li>Alden</li>
-          <li>Coughlin</li>
-          <li>ITBS</li>
-          <li>Health Stuff</li>
-        </ul>
-      </div>
-      <li id="academics">Academics <i class="fa-solid fa-angle-right"></i></li>
-      <li id="public">Public Services <i class="fa-solid fa-angle-right"></i></li>
-      <li id="student">Student Life <i class="fa-solid fa-angle-right"></i></li>
-      <li id="contact">Contact Us <i class="fa-solid fa-angle-right"></i></li>
+      {% for section in site.sections %}
+        <li>
+          <a href="#{{ section.slug }}" aria-current="page">{{ section.title | escape}} <i class="fa-solid fa-angle-right"></i></a>
+        </li>
+      {% endfor %}
     </ul>
   </div>
-  <div class="container" data-index="1" id="content">
-    <h1>Our Mission</h1>
-    <div>
-      <p class="nocap">To educate and prepare students, both academically and technically, to meet the challenges of a global society. Students will be provided with a highly supportive and academically challenging learning environment in the STEM initiatives to ensure our graduates are prepared for career and college and are compete globally.</p>
-      <ul style="margin-top: 30px">
-        <li>Learn About Our School <i class="fa-solid fa-angle-right"></i></li>
-        <li>Learn About Technical Areas <i class="fa-solid fa-angle-right"></i></li>
-        <li>Learn About Academics <i class="fa-solid fa-angle-right"></i></li>
+
+  {% for section in site.sections %}
+    <div class="container" data-image="{{ section.featured_image }}" id="{{ section.slug }}">
+      <h1>{{ section.title | escape }}</h1>
+      {% assign sub = section.slug | replace: "-", "_" %}
+      <ul>
+        {% for menu_item in site.[sub] %}
+          <li>
+            <a href="{{ menu_item.url | relative_url }}"
+               aria-current="page">{{ menu_item.title | escape }} <i class="fa-solid fa-angle-right"></i></a>
+          </li>
+        {% endfor %}
       </ul>
+      {{ section.content }}
     </div>
-    <div class="twobytwo">
-      <div>
-        <h2>23</h2>
-        <p>Technical Areas</p>
-      </div>
-      <div>
-        <h2>98%</h2>
-        <p>Graduation Rate</p>
-      </div>
-      <div>
-        <h2>1400</h2>
-        <p>Total Enrolled Students</p>
-      </div>
-      <div>
-        <h2>11:1</h2>
-        <p>Student to Teacher Ratio</p>
-      </div>
-    </div>
-  </div>
-  <div class="container" data-index="2">
-    <h1>Technical Areas</h1>
-    <p class="nocap">We are committed to preparing our students for both worlds of work and post-secondary education with high-quality career education and training programs through holistic teaching and learning.</p>
-    <ul style="margin-top: 30px">
-      <li>Alden Academy <i class="fa-solid fa-angle-right"></i></li>
-      <li>Allied Health and Human Services Academy <i class="fa-solid fa-angle-right"></i></li>
-      <li>Coghlin Construction Academy <i class="fa-solid fa-angle-right"></i></li>
-      <li>IT and Business Services Academy <i class="fa-solid fa-angle-right"></i></li>
-      <li>View All Programs <i class="fa-solid fa-angle-right"></i></li>
-    </ul>
-  </div>
-  <div class="container" data-index="3">
+  {% endfor %}
+
+  <div class="container" data-image="https://lpaa.com/wp-content/uploads/2006/10/Worcester-Tech.jpg">
+    <h1></h1>
     <ul style="margin-bottom: 30px">
       <li>Worcester Tech on Twitter <i class="fa-solid fa-angle-right"></i></li>
       <li>Worcester Public Schools on Twitter <i class="fa-solid fa-angle-right"></i></li>
@@ -83,12 +64,12 @@
       <li>Contact Us <i class="fa-solid fa-angle-right"></i></li>
     </ul>
     <p style="text-align: center">&copy; 2022 Worcester Technical High School</p>
-    <img src="https://wordpress.techhigh.us/wp-content/uploads/2022/03/New-School-Seal-removebg-preview-1.png" style="height: 6rem; width: auto; margin-left: auto; margin-right: auto; filter: brightness(0) invert(1); display: block; padding: 15px" />
+    <img src="https://wordpress.techhigh.us/wp-content/uploads/2022/03/New-School-Seal-removebg-preview-1.png" style="height: 6rem; width: auto; margin-left: auto; margin-right: auto; filter: brightness(0) invert(1); display: block; padding: 15px" alt="Worcester Tech logo" />
     <p class="nocap" style="text-align: center">The <a href="#">Worcester Public Schools</a> is an Equal Opportunity/Affirmative Action Employer/Educational Institution and does not discriminate regardless of race, color, gender, age, religion, national origin, gender identity, marital status, sexual orientation, disability or homelessness. The Worcester Public Schools provides equal access to employment and the full range of general, occupational and vocational education programs. For more information relating to Equal Opportunity/Affirmative Action contact the Human Resource Manager, 20 Irving Street, Worcester, MA 01609, 508-799-3020.</p>
   </div>
 </main><!-- /.landing -->
 
 </body>
-<script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.2.min.js" crossorigin="anonymous"></script>
 <script src="/assets/js/front-page.js"></script>
 </html>

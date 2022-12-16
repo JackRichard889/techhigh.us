@@ -6,7 +6,7 @@ date: 2022-10-26
 
 <div class="club_list" markdown="1">
 
-Worcester tech offers various clubs and leadership oppurtunities for students to excel in and out of the classroom
+Worcester tech offers various clubs and leadership opportunities for students to excel in and out of the classroom
 
 
 - ESports

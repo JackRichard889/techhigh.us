@@ -4,7 +4,7 @@ layout: section
 date: 2022-11-5
 ---
 
-Our students develop social skills by participating in many of our sports, clubs and other activities. Worcester Technical High School offers activities outside of the classroom. From athletic and clubs to leadership and co-ops, we allow every student the possibility to share their interests with their peers.
+Our students develop social skills by participating in many of our sports, clubs and other activities. Worcester Technical High School offers activities outside the classroom. From athletic and clubs to leadership and co-ops, we allow every student the possibility to share their interests with their peers.
 
 
 ### Academics
@@ -16,7 +16,7 @@ Whether you like to swing a bat, break a sweat on the basketball court, or cheer
 
 
 ### Clubs
-Worcester Tech offers various clubs and leadership opportunities for students to excel in and outside of the classroom.
+Worcester Tech offers various clubs and leadership opportunities for students to excel in and outside the classroom.
 
 
 ### Freshman
@@ -36,4 +36,4 @@ Worcester Technical High School is committed to helping students gain access to 
 
 
 ### Student Job Board
-Employers submit job forms for students to apply for through public posts on the home page. You can visit it [here](https://jobs.techhigh.us/).
+Employers submit job forms for students to apply for through public posts on the home page. You can [visit the job board here](https://jobs.techhigh.us/).
