@@ -42,6 +42,7 @@ plugins:
 
 collections: 
   sections:
+    sort_by: priority
     # Contains all the major groups of pages
     output: true
     permalink: /:path/

@@ -2,6 +2,7 @@
 title: Student Life
 layout: section
 date: 2022-11-5
+priority: 4
 ---
 
 Our students develop social skills by participating in many of our sports, clubs and other activities. Worcester Technical High School offers activities outside the classroom. From athletic and clubs to leadership and co-ops, we allow every student the possibility to share their interests with their peers.
